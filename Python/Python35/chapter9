@@ -1,0 +1,12 @@
+class Restaurant():
+
+	def __init__(self,restaurant_name,cuisinte_type):
+		self.restuarant_name = restaurant_name;
+		self.cuisinte_type = cuisinte_type
+	
+	
+	def describe_restaurant():
+		print('Restaurant name is '+ self.restaurant_name.title() + " and cuisinte type is "+ self.cuisinte_type)
+		
+	def restaurant_open():
+		print('Restaurant is open')
