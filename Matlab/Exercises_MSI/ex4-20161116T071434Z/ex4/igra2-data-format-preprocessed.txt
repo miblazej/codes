@@ -1,0 +1,183 @@
+Format Description of IGRA 2 Sounding Data Files
+
+---------------------
+Notes:
+---------------------
+
+1. Both types of files are updated once a day in the early morning Eastern
+   Time. The latest observations usually become available within two 
+   calendar days of when they were taken.
+
+2. Data files are available for two different time spans:
+
+   In subdirectory data-por, data files contain the full period of record.
+   In subdirectory data-y2d, files only contain soundings from the current
+     (or current and previous) year. For example, as of August 2016, 
+     the files in the data-y2d subdirectory begin with January 1, 2016.
+
+3. Each file in the data-por and data-y2d subdirectories contains the 
+   sounding data for one station.
+   The name of the file corresponds to a station's IGRA 2 identifier (e.g.,
+   "USM00072201-data.txt.zip"  contains the data for the station with the 
+   identifier USM00072201).
+
+3. Each sounding consists of one header record and n data 
+   records, where n (given in the header record) is the number of levels
+   in the sounding.
+
+---------------------
+Data Record Format:
+---------------------
+
+-------------------------------
+Variable        Columns Type  
+-------------------------------
+YEAR         	1  	Integer
+MONTH        	2	Integer
+DAY          	3  	Integer
+HOUR         	4	Integer
+LVLTYP          5	2 Integers (LVLTYP1 and LVLTYP2)
+ETIME           6   	Integer
+PRESS          	7   	Integer
+PFLAG          	8   	Integer
+GPH            	9	Integer
+ZFLAG          	10	Integer
+TEMP           	11	Integer
+TFLAG          	12	Integer
+RH             	13	Integer
+DPDP          	14	Integer
+WDIR           	15	Integer
+WSPD           	16	Integer
+-------------------------------
+
+These variables have the following definitions:
+
+YEAR 		is the year of the sounding.
+
+MONTH 		is the month of the sounding.
+
+DAY 		is the day of the sounding.
+
+HOUR 		is the nominal or observation hour of the sounding (in UTC on
+		the date indicated in the YEAR/MONTH/DAY fields). Possible 
+		valid hours are 00 through 23, and 99 = missing. Hours are 
+		given as provided by the data provider, and the relationship 
+		between this hour and the release time varies by data 
+		provider, over time, and among stations.
+
+LVL??TYP1 	is the major level type indicator. It has the following 
+		three possible values:
+
+		1 = Standard pressure level (for levels at 1000, 925, 850,
+		    700, 500, 400, 300, 250, 200, 150, 100, 70, 50, 30, 
+		    20, 10, 7, 5, 3, 2, and 1 hPa)
+		2 = Other pressure level
+		3 = Non-pressure level
+
+LVL??TYP2 	is the minor level type indicator. It has the following 
+		three possible values:
+
+		1 = Surface
+		2 = Tropopause
+		0 = Other
+
+ETIME		is the elapsed time since launch. The format is MMMSS, where
+		MMM represents minutes and SS represents seconds, though
+		values are not left-padded with zeros. The following special
+		values are used:
+
+		-8888 = Value removed by IGRA quality assurance, but valid
+		        data remain at the same level.
+		-9999 = Value missing prior to quality assurance.
+
+PRESS 		is the reported pressure (Pa or mb * 100, e.g., 
+		100000 = 1000 hPa or 1000 mb). -9999 = missing.
+
+PFLAG 		is the pressure processing flag indicating what level of
+		climatology-based quality assurance checks were applied. It
+		has three possible values:
+
+		0     = Not checked by any climatology checks. If data value 
+		        not equal to -9999, it passed all other applicable 
+		        checks.
+		1     = Value falls within "tier-1" climatological limits
+		        based on all days of the year and all times of day
+		        at the station, but not checked by 
+		        "tier-2" climatology checks due to 
+		        insufficient data. 
+		2     = Value passes checks based on both the tier-1
+		        climatology and a "tier-2" climatology specific to
+		        the time of year and time of day of the data value.
+
+GPH 		is the reported geopotential height (meters above sea level).
+		This value is often not available at variable-pressure levels.
+		The following special values are used:
+
+		-8888 = Value removed by IGRA quality assurance, but valid
+		        data remain at the same level.
+		-9999 = Value missing prior to quality assurance.
+
+ZFLAG 		is the  geopotential height processing flag indicating what 
+		level of climatology-based quality assurance checks were 
+		applied. It has three possible values:
+
+		0     = Not checked by any climatology checks or flag not
+		        applicable. If data value not equal to -8888 or -9999, 
+		        it passed all other applicable checks.
+		1     = Value falls within "tier-1" climatological limits
+		        based on all days of the year and all times of day
+		        at the station, but not checked by 
+		        "tier-2" climatology checks due to insufficient data. 
+		2     = Value passes checks based on both the tier-1
+		        climatology and a "tier-2" climatology specific to
+		        the time of year and time of day of the data value.
+
+TEMP 		is the reported temperature (degrees C to tenths, e.g., 
+		11 = 1.1??C). The following special values are used:
+
+		-8888 = Value removed by IGRA quality assurance, but valid
+		        data remain at the same level.
+		-9999 = Value missing prior to quality assurance.
+
+TFLAG 		is the temperature processing flag indicating what 
+		level of climatology-based quality assurance checks were 
+		applied. It has three possible values:
+
+		0     = Not checked by any climatology checks or flag not
+		        applicable. If data value not equal to -8888 or -9999, 
+		        it passed all other applicable checks.
+		1     = Value falls within "tier-1" climatological limits
+		        based on all days of the year and all times of day
+		        at the station, but not checked by "tier-2" 
+		        climatology checks due to insufficient data. 
+		2     = Value passes checks based on both the tier-1
+		        climatology and a "tier-2" climatology specific to
+		        the time of year and time of day of the data value.
+
+RH 		is the reported relative humidity (Percent to tenths, e.g., 
+		11 = 1.1%). The following special values are used:
+
+		-8888 = Value removed by IGRA quality assurance, but valid
+		        data remain at the same level.
+		-9999 = Value missing prior to quality assurance.
+DPDP 		is the reported dewpoint depression (degrees C to tenths, e.g., 
+		11 = 1.1??C). The following special values are used:
+
+		-8888 = Value removed by IGRA quality assurance, but valid
+		        data remain at the same level.
+		-9999 = Value missing prior to quality assurance.
+
+WDIR 		is the reported wind direction (degrees from north, 
+		90 = east). The following special values are used:
+
+		-8888 = Value removed by IGRA quality assurance, but valid
+		        data remain at the same level.
+		-9999 = Value missing prior to quality assurance.
+
+WSPD 		is the reported wind speed (meters per second to tenths, e.g., 
+		11 = 1.1 m/s). The following special values are used:
+
+		-8888 = Value removed by IGRA quality assurance, but valid
+		        data remain at the same level.
+		-9999 = Value missing prior to quality assurance.
+
