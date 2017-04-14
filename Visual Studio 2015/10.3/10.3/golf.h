@@ -14,6 +14,8 @@ public:
 	Golf();
 	Golf(Golf & g);
 	Golf(char *name, int hc);
-	Golf setgolf(char * name, int hc);
+	~Golf();
+	const Golf setgolf(char * name, int hc);
+	void show();
 
 };
