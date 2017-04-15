@@ -1,4 +1,0 @@
-﻿  main.cpp
-c:\users\michal\documents\visual studio 2015\projects\chapter7_2\chapter7_2\main.cpp(16): warning C4101: 'size_2': unreferenced local variable
-  chapter7_2.vcxproj -> c:\users\michal\documents\visual studio 2015\Projects\chapter7_2\Debug\chapter7_2.exe
-  chapter7_2.vcxproj -> c:\users\michal\documents\visual studio 2015\Projects\chapter7_2\Debug\chapter7_2.pdb (Full PDB)

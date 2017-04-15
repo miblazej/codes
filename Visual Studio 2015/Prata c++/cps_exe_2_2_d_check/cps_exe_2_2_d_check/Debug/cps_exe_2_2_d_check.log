@@ -1,0 +1,4 @@
+﻿  main.c
+c:\users\michal\documents\visual studio 2015\projects\cps_exe_2_2_d_check\cps_exe_2_2_d_check\main.c(9): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  cps_exe_2_2_d_check.vcxproj -> c:\users\michal\documents\visual studio 2015\Projects\cps_exe_2_2_d_check\Debug\cps_exe_2_2_d_check.exe
+  cps_exe_2_2_d_check.vcxproj -> c:\users\michal\documents\visual studio 2015\Projects\cps_exe_2_2_d_check\Debug\cps_exe_2_2_d_check.pdb (Full PDB)

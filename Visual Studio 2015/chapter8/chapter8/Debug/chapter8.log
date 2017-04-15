@@ -1,5 +1,0 @@
-﻿  main.cpp
-c:\users\michal\documents\visual studio 2015\projects\chapter8\chapter8\main.cpp(60): warning C4101: 'a': unreferenced local variable
-c:\users\michal\documents\visual studio 2015\projects\chapter8\chapter8\main.cpp(60): warning C4101: 'b': unreferenced local variable
-  chapter8.vcxproj -> c:\users\michal\documents\visual studio 2015\Projects\chapter8\Debug\chapter8.exe
-  chapter8.vcxproj -> c:\users\michal\documents\visual studio 2015\Projects\chapter8\Debug\chapter8.pdb (Full PDB)
