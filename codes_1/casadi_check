@@ -1,4 +1,0 @@
-import casadi.*;
-x = MX.sym('x',2);
-y = MX.sym('y');
-f = Function('f' ,{x,y},{x, sin(y)*x});

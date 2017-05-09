@@ -10,7 +10,12 @@ h=0.125;
 for n = 1: steps
    x_vec(:,n+1)= x_vec(:,n) + h * expl_integrator(t(1,n),x_vec(:,n));
 end
+dummy = zeros(2,21);
+dummy(:,1)= x_init;
 % assigment of calculated value to output value
-x = x_vec;
+for n = 1:20
+    dummy(:,n+1) = x_vec(:,n*4);
+end
+x = dummy;
 end
 
